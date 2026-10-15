@@ -88,61 +88,6 @@
             <point key="canvasLocation" x="878" y="152"/>
         </scene>
         <!--Google Analytics-->
-        <scene sceneID="k3A-oc-lOL">
-            <objects>
-                <viewController title="Google Analytics" id="Llh-rW-gL7" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Phc-JQ-FyW"/>
-                        <viewControllerLayoutGuide type="bottom" id="T5u-YJ-Hlc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Lds-n8-aTo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Secret Event Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vVQ-ez-kYY">
-                                <rect key="frame" x="16" y="59" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Secret Event Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="875-Qc-b3P">
-                                <rect key="frame" x="16" y="28" width="343" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-Yq-Y1d">
-                                <rect key="frame" x="138" y="99" width="98" height="30"/>
-                                <state key="normal" title="Test the result"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6P-xg-L7n">
-                                <rect key="frame" x="16" y="149" width="343" height="139.5"/>
-                                <string key="text">This ViewController is tied to a specific Google Analytics event. You have to disassemble it, find the event payload and input in the textfield the string, corresponding to the key "eventSecretName".</string>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5aB-Yq-Y1d" firstAttribute="centerX" secondItem="Lds-n8-aTo" secondAttribute="centerX" id="7Yl-tc-L9O"/>
-                            <constraint firstItem="c6P-xg-L7n" firstAttribute="leading" secondItem="Lds-n8-aTo" secondAttribute="leadingMargin" id="GDy-oL-9R2"/>
-                            <constraint firstItem="vVQ-ez-kYY" firstAttribute="trailing" secondItem="Lds-n8-aTo" secondAttribute="trailingMargin" id="KCv-jw-lZx"/>
-                            <constraint firstItem="5aB-Yq-Y1d" firstAttribute="top" secondItem="vVQ-ez-kYY" secondAttribute="bottom" constant="10" id="PT1-My-Uiz"/>
-                            <constraint firstItem="875-Qc-b3P" firstAttribute="trailing" secondItem="Lds-n8-aTo" secondAttribute="trailingMargin" id="SJ1-Cx-GvG"/>
-                            <constraint firstItem="vVQ-ez-kYY" firstAttribute="leading" secondItem="Lds-n8-aTo" secondAttribute="leadingMargin" id="crN-eQ-8FJ"/>
-                            <constraint firstItem="vVQ-ez-kYY" firstAttribute="top" secondItem="875-Qc-b3P" secondAttribute="bottom" constant="8" id="ipB-A0-UvE"/>
-                            <constraint firstItem="c6P-xg-L7n" firstAttribute="top" secondItem="5aB-Yq-Y1d" secondAttribute="bottom" constant="20" id="kSb-sc-p29"/>
-                            <constraint firstItem="875-Qc-b3P" firstAttribute="top" secondItem="Phc-JQ-FyW" secondAttribute="bottom" constant="8" id="raa-Xt-aEL"/>
-                            <constraint firstItem="875-Qc-b3P" firstAttribute="leading" secondItem="Lds-n8-aTo" secondAttribute="leadingMargin" id="rxz-ZL-skY"/>
-                            <constraint firstItem="c6P-xg-L7n" firstAttribute="trailing" secondItem="Lds-n8-aTo" secondAttribute="trailingMargin" id="yCh-7C-elD"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0qM-20-703" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2956" y="1989.3553223388308"/>
-        </scene>
         <!--Data Leakage to Third Parties-->
         <scene sceneID="ghG-3b-fv9">
             <objects>

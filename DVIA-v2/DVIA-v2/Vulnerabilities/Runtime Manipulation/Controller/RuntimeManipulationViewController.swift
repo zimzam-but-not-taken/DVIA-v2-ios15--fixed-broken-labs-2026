@@ -49,7 +49,7 @@ class RuntimeManipulationViewController: UIViewController {
     }
     
     @IBAction func runtimeArticle2Tapped(_ sender: Any) {
-        DVIAUtilities.loadWebView(withURL: UrlLinks.runtimeArticle1.url, viewController: self)
+        DVIAUtilities.loadWebView(withURL: UrlLinks.runtimeArticle2.url, viewController: self)
     }
     
     @IBAction func runtimeArticle3Tapped(_ sender: Any) {

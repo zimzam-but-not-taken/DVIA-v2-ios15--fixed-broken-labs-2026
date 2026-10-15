@@ -515,7 +515,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Z0-QY-dBH">
                                         <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                        <string key="text">Applications using UIWebView to load web pages often use caching to speed up the response time. In some cases, they could cache a response that will contain confidential information. Your task is to find the place where the requests and responses are stored in the application sandbox. Hint: The table names in the database that cache the data start with cf_url.</string>
+                                        <string key="text">Applications that load web content often rely on caching to speed up the response time. In some cases they cache a request or response that contains confidential information. Enter any credentials and tap Login, then find where the request and response were stored in the application sandbox. Hint: look inside Library/Caches. The table names in the SQLite database that caches the data start with cfurl_cache.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

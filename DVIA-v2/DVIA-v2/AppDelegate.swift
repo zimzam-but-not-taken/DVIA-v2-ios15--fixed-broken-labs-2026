@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
         let splitUrl = url.absoluteString.components(separatedBy: "/phone/call_number/")
-        if ((Int(splitUrl[1])) != nil){
+        // Deliberately no validation of the caller: any app or web page can trigger this.
+        if splitUrl.count > 1, Int(splitUrl[1]) != nil {
             //Valid URL, since the argument is a number
             let alertController = UIAlertController(title: "Success!", message: "Calling \(splitUrl[1]). Ring Ring !!!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)

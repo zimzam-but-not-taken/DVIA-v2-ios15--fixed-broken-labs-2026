@@ -1,7 +1,7 @@
 //
 //  RealmUser.swift
 //  DVIA - Damn Vulnerable iOS App (damnvulnerableiosapp.com)
-//  Created by Prateek Gianchandani on 15/12/17.
+//  Created by Prateek Gianchandani on 14/12/17.
 //  Copyright © 2018 HighAltitudeHacks. All rights reserved.
 //  You are free to use this app for commercial or non-commercial purposes
 //  You are also allowed to use this in trainings
@@ -10,14 +10,15 @@
 //  For more information,  visit www.thejuniperfund.org
 //  Or watch this video https://www.youtube.com/watch?v=HsV6jaA5J2I
 //  And this https://www.youtube.com/watch?v=6dHXcoF590E
- 
 
 
 import Foundation
 import RealmSwift
 
+// Realm only persists properties that are declared `@objc dynamic`.
+// The original model used plain Swift optionals, so Realm created an
+// object with an empty schema and the "saved" data never reached disk.
 class RealmUser: Object {
-    var name: String?
-    var password: String?
-    
+    @objc dynamic var name: String? = nil
+    @objc dynamic var password: String? = nil
 }

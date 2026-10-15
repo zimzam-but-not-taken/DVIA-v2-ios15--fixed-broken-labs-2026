@@ -1,15 +1,21 @@
+platform :ios, '15.0'
 use_frameworks!
 
 target 'DVIA-v2' do
-    pod 'Parse'
-    pod 'GoogleAnalytics'
-    pod 'RealmSwift'
-    pod 'couchbase-lite-ios'
-    pod 'Flurry-iOS-SDK/FlurrySDK'
+    pod 'RealmSwift', '4.1.1'
+    pod 'couchbase-lite-ios', '1.4.4'
+    pod 'Flurry-iOS-SDK/FlurrySDK', '12.1.4'
 end
 
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
+    # The pinned Realm / Couchbase binaries have no arm64 simulator slice.
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+  # Xcode 26+ refuses deployment targets below iOS 15; the old pods declare 8.0-10.0.
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+    end
   end
 end

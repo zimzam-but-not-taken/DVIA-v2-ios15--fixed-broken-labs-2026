@@ -17,9 +17,12 @@ import UIKit
 class SensitiveInformationInMemoryDetailsViewController: UIViewController {
     let username = "edhillary"
     let password = "ev8848@1953"
+    // Kept alive for the lifetime of the screen so it can be found in a memory dump.
+    var concatenated: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Sensitive Information in Memory"
+        initializeIVars()
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +33,7 @@ class SensitiveInformationInMemoryDetailsViewController: UIViewController {
     
     func initializeIVars(){
         let passwd = "tenzinnorgay"
-        let concatenated = username + passwd + password
+        concatenated = username + passwd + password
     }
     
 

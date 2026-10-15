@@ -77,7 +77,11 @@ class RuntimeManipulationDetailsViewController: UIViewController, UITextFieldDel
     }
     
     @IBAction func validateCodeTapped(_ sender: Any) {
-        LoginValidate.validateCode(Int(codeTextField.text!)!, viewController: self)
+        guard let text = codeTextField.text, let code = Int(text) else {
+            DVIAUtilities.showAlert(title: "Error", message: "Please enter a numeric code.", viewController: self)
+            return
+        }
+        LoginValidate.validateCode(code, viewController: self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

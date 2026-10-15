@@ -10,7 +10,6 @@
 //  For more information,  visit www.thejuniperfund.org
 //  Or watch this video https://www.youtube.com/watch?v=HsV6jaA5J2I
 //  And this https://www.youtube.com/watch?v=6dHXcoF590E
- 
 
 
 import UIKit
@@ -24,8 +23,6 @@ class RealmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Realm"
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func saveInRealmTapped(_ sender: Any) {
@@ -33,16 +30,21 @@ class RealmViewController: UIViewController {
             DVIAUtilities.showAlert(title: "Error", message: "One or more input fields is empty.", viewController: self)
             return
         }
-        let realm: Realm = try! Realm()
-        let user = RealmUser()
-        user.name = realmUserNameTextField.text
-        user.password = realmPasswordTextField.text
         do {
-            try! realm.write {
+            // Default Realm file lives at <sandbox>/Documents/default.realm
+            let realm = try Realm()
+            let user = RealmUser()
+            user.name = realmUserNameTextField.text
+            user.password = realmPasswordTextField.text
+            try realm.write {
                 realm.add(user)
-                DVIAUtilities.showAlert(title: "", message: "Data saved in Realm Database", viewController: self)
-
             }
+            let path = realm.configuration.fileURL?.path ?? "default.realm"
+            print("Realm user saved to \(path)")
+            DVIAUtilities.showAlert(title: "", message: "Data saved in Realm Database", viewController: self)
+        } catch {
+            print("Realm error: \(error)")
+            DVIAUtilities.showAlert(title: "Error", message: "Could not save to Realm: \(error.localizedDescription)", viewController: self)
         }
     }
 }

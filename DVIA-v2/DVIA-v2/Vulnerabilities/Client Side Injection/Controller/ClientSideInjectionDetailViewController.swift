@@ -14,11 +14,12 @@
 
 
 import UIKit
+import WebKit
 
 class ClientSideInjectionDetailViewController: UIViewController {
     
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var webView: UIWebView!
+    @IBOutlet var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

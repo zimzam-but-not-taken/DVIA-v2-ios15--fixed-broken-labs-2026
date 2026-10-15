@@ -35,17 +35,20 @@ class FlurryLeakDetailsViewController: UIViewController, UITextFieldDelegate {
         //Shouldn't be sending the whole UUID
         let strippeduuid = identifierForVendor?.dropLast(10)
         textField.resignFirstResponder()
-        let params: Dictionary = [
-            "phone": textField.text,
-            "uuid" : strippeduuid
-            ] as [String : Any]
-        Flurry.log(eventName: "PhoneEntered", parameters:params as Any as! [AnyHashable : Any])
-        
-        let queryItem = URLQueryItem(name: "q", value: "\(textField.text!)")
-        let url = URL(string: "http://google.com?\(queryItem)")
-        let request = URLRequest(url: url!)
-        var connection = NSURLConnection(request: request, delegate: nil, startImmediately: true)
-                return true
+        let phone = textField.text ?? ""
+        let params: [String: Any] = [
+            "phone": phone,
+            "uuid" : String(strippeduuid ?? "")
+        ]
+        // The phone number is handed to a third party analytics SDK...
+        Flurry.log(eventName: "PhoneEntered", parameters: params)
+        // ...and also leaks in a plain HTTP query string.
+        var components = URLComponents(string: "http://google.com/search")!
+        components.queryItems = [URLQueryItem(name: "q", value: phone)]
+        if let url = components.url {
+            URLSession.shared.dataTask(with: URLRequest(url: url)).resume()
+        }
+        return true
         
     }
     

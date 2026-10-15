@@ -103,7 +103,9 @@ class CameraPermissionsViewController: UIViewController,UITableViewDataSource, U
         } catch {
         }
         
-        session.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.startRunning()
+        }
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
         self.previewLayer.videoGravity = .resizeAspectFill

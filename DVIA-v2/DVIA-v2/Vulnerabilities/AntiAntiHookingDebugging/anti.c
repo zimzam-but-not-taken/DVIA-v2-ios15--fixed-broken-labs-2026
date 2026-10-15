@@ -56,7 +56,17 @@ int detect_injected_dylds()
         const char *dyld = _dyld_get_image_name(i);
        // printf("LibraryName:%s\n",basename(dyld));
         //Cycript for RuntimeManipulation, MobileSubstrate for any form of injection, and SSLKillSwitch2 if someone tries to bypas SSLPinning, additionally these stings can be obfuscated in the code as well
-        if(!strstr(dyld, "MobileSubstrate") && !strstr(dyld, "cycript") && !strstr(dyld, "SSLKillSwitch") && !strstr(dyld, "SSLKillSwitch2")) {
+        //Rootless jailbreaks ship ElleKit / libhooker / substitute instead of MobileSubstrate
+        const char *suspicious[] = { "MobileSubstrate", "libsubstrate", "substitute", "libhooker", "ellekit",
+                                     "TweakInject", "cycript", "SSLKillSwitch", NULL };
+        int found = 0;
+        for (int j = 0; suspicious[j] != NULL; j++) {
+            if (strcasestr(dyld, suspicious[j]) != NULL) {
+                found = 1;
+                break;
+            }
+        }
+        if (!found) {
             continue;
         }
         else {

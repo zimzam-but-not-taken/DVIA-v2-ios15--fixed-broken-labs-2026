@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcbkptlist
+IDEFindNavigatorScopes.plist
+xcschememanagement.plist
+DerivedData/
+build/
+
+# Scratch
+*.orig
